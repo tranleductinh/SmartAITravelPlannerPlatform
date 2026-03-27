@@ -8,7 +8,7 @@ export default function Header() {
                 <div className="relative w-full max-w-md">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg w-5 h-5 outline-none"/>
                     <input
-                        className="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg text-sm outline-none"
+                        className="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg text-sm outline-primary"
                         placeholder="Where to next? (e.g. Da Nang, Ha Noi)"
                         type="text"
                     />

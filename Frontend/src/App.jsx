@@ -3,6 +3,7 @@ import LoginPage from "./pages/LoginPage";
 import TravelerDashboard from "./pages/TravelerDashboard";
 import Layout from "./components/layout";
 import AIPlan from "./pages/AIPlan";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function AppRoutes() {
     const location = useLocation();
@@ -13,11 +14,12 @@ function AppRoutes() {
             <Route path="/login" element={<LoginPage />} />
 
             {/* Main pages */}
-            <Route path="/" element={<Layout />}>
-                <Route path="traveler">
-                    <Route index element={<TravelerDashboard />} />
-                    <Route path="ai-plan" element={<AIPlan />} />
-                </Route>
+            <Route path="/traveler" element={<Layout />}>
+                <Route index element={<TravelerDashboard />} />
+                <Route path="ai-plan" element={<AIPlan />} />
+            </Route>
+            <Route path="/admin" element={<Layout />}>
+                <Route index element={<AdminDashboard />} />
             </Route>
         </Routes>
     );
