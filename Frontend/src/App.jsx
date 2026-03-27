@@ -4,6 +4,7 @@ import TravelerDashboard from "./pages/TravelerDashboard";
 import Layout from "./components/layout";
 import AIPlan from "./pages/AIPlan";
 import AdminDashboard from "./pages/AdminDashboard";
+import ProvidersDashborad from "./pages/ProvidersDashborad";
 
 function AppRoutes() {
     const location = useLocation();
@@ -20,6 +21,9 @@ function AppRoutes() {
             </Route>
             <Route path="/admin" element={<Layout />}>
                 <Route index element={<AdminDashboard />} />
+            </Route>
+            <Route path="/providers" element={<Layout />}>
+                <Route index element={<ProvidersDashborad />} />
             </Route>
         </Routes>
     );
