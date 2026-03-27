@@ -1,3 +1,4 @@
+import { Bell, Settings } from "lucide-react";
 import React from "react";
 
 export default function HeaderAdmin() {
@@ -21,11 +22,11 @@ export default function HeaderAdmin() {
                     />
                 </div>
                 <button class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors relative">
-                    <span class="material-symbols-outlined">notifications</span>
+                    <Bell />
                     <span class="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full"></span>
                 </button>
                 <button class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">
-                    <span class="material-symbols-outlined">settings</span>
+                    <Settings />
                 </button>
             </div>
         </header>

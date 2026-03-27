@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import HeaderTraveler from "./HeaderTraveler";
 import HeaderAdmin from "./HeaderAdmin";
+import HeaderHotel from "./HeaderHotel";
 
 export default function Layout() {
     const location = useLocation();
@@ -13,7 +14,13 @@ export default function Layout() {
             <div className="flex w-full">
                 <AppSidebar />
                 <main className="flex-1">
-                    {roleCurrent ? <HeaderAdmin /> : <HeaderTraveler />}
+                    {location.pathname.includes("admin") ? (
+                        <HeaderAdmin />
+                    ) : location.pathname.includes("traveler") ? (
+                        <HeaderTraveler />
+                    ) : (
+                        <HeaderHotel />
+                    )}
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={location.pathname}
