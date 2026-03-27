@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Header() {
     return (
-        <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-10 flex items-center justify-between px-8">
+        <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-100 flex items-center justify-between px-8">
             <div className="flex items-center gap-6 flex-1">
                 <div className="relative w-full max-w-md">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg w-5 h-5 outline-none"/>
