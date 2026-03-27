@@ -1,5 +1,5 @@
 import React from "react";
-import LoginCard from "../../pages/LoginCard";
+import LoginCard from "./LoginCard";
 
 const LoginPage = () => {
   return (
