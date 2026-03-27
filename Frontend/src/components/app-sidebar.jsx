@@ -7,16 +7,21 @@ import {
     CalendarDays,
     Ticket,
     Hotel,
-    Map,
     Utensils,
-    CreditCard,
     Star,
     LifeBuoy,
     Plane,
+    Users,
+    Store,
+    Map,
+    ShieldCheck,
+    CreditCard,
+    Bell,
+    BarChart3,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
-const data = [
+const travelerMenuItems = [
     { name: "Dashboard", href: "", icon: LayoutDashboard },
     { name: "AI Plan", href: "/ai-plan", icon: Sparkles },
     { name: "Itinerary", href: "/itinerary", icon: CalendarDays },
@@ -29,10 +34,23 @@ const data = [
     { name: "Reviews", href: "/reviews", icon: Star },
     { name: "Support", href: "/support", icon: LifeBuoy },
 ];
-
+export const adminMenuItems = [
+    { name: "Overview", href: "", icon: LayoutDashboard },
+    { name: "Users", href: "/users", icon: Users },
+    { name: "Providers", href: "/providers", icon: Store },
+    { name: "Hotels", href: "/hotels", icon: Hotel },
+    { name: "Map", href: "/map", icon: Map },
+    { name: "Service Approvals", href: "/service-approvals", icon: ShieldCheck },
+    { name: "Bookings", href: "/bookings", icon: CalendarDays },
+    { name: "Payments", href: "/payments", icon: CreditCard },
+    { name: "Reviews", href: "/reviews", icon: Star },
+    { name: "Support Tickets", href: "/support", icon: LifeBuoy },
+    { name: "Notifications", href: "/notifications", icon: Bell },
+    { name: "Reports", href: "/reports", icon: BarChart3 },
+];
 export function AppSidebar() {
     const location = useLocation();
-
+    const roleCurrent = location.pathname.includes("admin") === true ? adminMenuItems : travelerMenuItems;
     return (
         <Sidebar>
             <SidebarHeader className="p-5">
@@ -46,14 +64,16 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent className="flex flex-col gap-2 px-4 overflow-y-auto">
-                {data.map((item) => {
+                {roleCurrent.map((item) => {
                     const Icon = item.icon;
-                    const isActive = location.pathname === "/traveler" +item.href;
+                    const isActive =
+                        location.pathname ===
+                        (location.pathname.includes("admin") === true ? "/admin" : "/traveler") + item.href;
 
                     return (
                         <Link
                             key={item.href}
-                            to={"/traveler" +item.href}
+                            to={(location.pathname.includes("admin") === true ? "/admin" : "/traveler") + item.href}
                             className="relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-slate-100 duration-300 font-medium "
                         >
                             {isActive && (
