@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LoginPage from "./pages/Auth/LoginPage";
 import TravelerDashboard from "./pages/Travel/TravelerDashboard";
-import Layout from "./components/layout";
+import Layout from "./components/Layout";
 import AIPlan from "./pages/Travel/AIPlan";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import HotelDashboard from "./pages/Hotel/HotelDashboard";
