@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import AIPlan from "./pages/Travel/AIPlan";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import HotelDashboard from "./pages/Hotel/HotelDashboard";
+import RegisterPage from "./pages/Auth/RegisterPage";
 
 function AppRoutes() {
   const location = useLocation();
@@ -13,6 +14,7 @@ function AppRoutes() {
     <Routes location={location} key={location.pathname}>
       {/* Login */}
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<RegisterPage />} />
 
       {/* Main pages */}
       <Route path="/traveler" element={<Layout />}>
