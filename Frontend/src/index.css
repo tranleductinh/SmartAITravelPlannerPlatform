@@ -127,4 +127,13 @@
   html {
     @apply font-sans;
     }
+@layer utilities {
+  .bg-atmosphere {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(13,166,242,.18), transparent 45%),
+      radial-gradient(circle at 78% 18%, rgba(245,158,11,.2), transparent 40%),
+      radial-gradient(circle at 40% 85%, rgba(16,185,129,.15), transparent 50%),
+      linear-gradient(135deg, #f5f7f8, #f0f6ff 45%, #fff5e6);
+  }
+}
 }
