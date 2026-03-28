@@ -56,7 +56,6 @@ const MENU = {
       href: "/service-approvals",
       icon: ShieldCheck,
     },
-    { name: "Bookings", href: "/bookings", icon: CalendarDays },
     { name: "Payments", href: "/payments", icon: CreditCard },
     { name: "Reviews", href: "/reviews", icon: Star },
     { name: "Support Tickets", href: "/support", icon: LifeBuoy },
