@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import AIPlan from "./pages/Travel/AIPlan";
 import AdminOverview from "./pages/Admin/AdminOverview";
 import HotelDashboard from "./pages/Hotel/HotelDashboard";
+import AdminNotifications from "./pages/Admin/AdminNotifications";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import AdminUsers from "./pages/Admin/AdminUsers";
 import Bookings from "./pages/Travel/Bookings";
@@ -25,9 +26,9 @@ function AppRoutes() {
         <Route path="bookings" element={<Bookings />} />
       </Route>
       <Route path="/admin" element={<Layout />}>
+        <Route path="notifications" element={<AdminNotifications />} />
         <Route index element={<AdminOverview />} />
-        <Route path="users" element={<AdminUsers/>}/>
-       
+        <Route path="users" element={<AdminUsers />} />
       </Route>
       <Route path="/hotel" element={<Layout />}>
         <Route index element={<HotelDashboard />} />
