@@ -7,6 +7,7 @@ import AdminOverview from "./pages/Admin/AdminOverview";
 import HotelDashboard from "./pages/Hotel/HotelDashboard";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import AdminUsers from "./pages/Admin/AdminUsers";
+import Bookings from "./pages/Travel/Bookings";
 
 function AppRoutes() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function AppRoutes() {
       <Route path="/traveler" element={<Layout />}>
         <Route index element={<TravelerDashboard />} />
         <Route path="ai-plan" element={<AIPlan />} />
+        <Route path="bookings" element={<Bookings />} />
       </Route>
       <Route path="/admin" element={<Layout />}>
         <Route index element={<AdminOverview />} />
