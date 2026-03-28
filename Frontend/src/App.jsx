@@ -26,7 +26,6 @@ function AppRoutes() {
         <Route path="bookings" element={<Bookings />} />
       </Route>
       <Route path="/admin" element={<Layout />}>
-        <Route index element={<AdminDashboard />} />
         <Route path="notifications" element={<AdminNotifications />} />
         <Route index element={<AdminOverview />} />
         <Route path="users" element={<AdminUsers />} />
