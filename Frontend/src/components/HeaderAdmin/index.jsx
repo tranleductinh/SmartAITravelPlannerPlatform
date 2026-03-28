@@ -21,10 +21,14 @@ export default function HeaderAdmin() {
                         type="text"
                     />
                 </div>
-                <button class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors relative">
+
+                <a
+                    className="p-2 rounded-lg transition-colors text-slate-600 hover:bg-slate-100"
+                    href="/admin/notifications"
+                >
                     <Bell />
-                    <span class="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full"></span>
-                </button>
+                </a>
+
                 <button class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">
                     <Settings />
                 </button>
