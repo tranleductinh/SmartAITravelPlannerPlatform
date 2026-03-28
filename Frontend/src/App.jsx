@@ -5,6 +5,7 @@ import Layout from "./components/layout";
 import AIPlan from "./pages/Travel/AIPlan";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import HotelDashboard from "./pages/Hotel/HotelDashboard";
+import AdminNotifications from "./pages/Admin/AdminNotifications";
 
 function AppRoutes() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function AppRoutes() {
       </Route>
       <Route path="/admin" element={<Layout />}>
         <Route index element={<AdminDashboard />} />
+        <Route path="notifications" element={<AdminNotifications />} />
       </Route>
       <Route path="/hotel" element={<Layout />}>
         <Route index element={<HotelDashboard />} />
