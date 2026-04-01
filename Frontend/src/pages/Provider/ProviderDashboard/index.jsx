@@ -140,7 +140,7 @@ const ProviderDashboard = () => {
               </p>
             </div>
 
-            <select className="rounded-xl border-0 bg-surface-container-low text-sm font-semibold focus:ring-primary">
+            <select className="rounded-xl p-3 pr-8 border-0 bg-surface-container-low text-sm font-semibold focus:ring-primary">
               <option>Last 6 Months</option>
               <option>Year to Date</option>
             </select>
@@ -239,33 +239,49 @@ const ProviderDashboard = () => {
           </div>
         </div>
       </div>
+      <section className="w-full">
+  <div className="relative flex min-h-[250px] flex-col overflow-hidden rounded-[2rem] bg-[#125d4f] p-8 md:p-12 text-white shadow-sm">
 
-      <section>
-        <div className="relative flex flex-col items-center justify-between overflow-hidden rounded-[2rem] bg-gradient-to-r from-teal-800 to-teal-900 p-8 text-white md:flex-row">
-          <div className="relative z-10 max-w-lg">
-            <span className="rounded-full bg-primary-container/20 px-3 py-1 font-heading text-[10px] font-bold uppercase tracking-widest text-primary-fixed">
-              Voyager Insights
-            </span>
-            <h4 className="mt-4 font-heading text-2xl font-bold">
-              Boost your bookings this summer with AI-driven pricing.
-            </h4>
-            <p className="mt-2 text-teal-100/70">
-              Our latest model predicts a 20% surge in demand for cultural
-              tours. Adjust your availability now.
-            </p>
-            <button className="mt-6 rounded-xl bg-white px-6 py-2.5 font-heading text-sm font-bold text-teal-900 transition-colors hover:bg-teal-50">
-              Apply Optimization
-            </button>
-          </div>
+   
+    <div className="pointer-events-none absolute right-[-5%] top-1/2 z-0 h-[250px] w-[250px] -translate-y-1/2 rounded-full border-[24px] border-white/5 md:right-[5%] md:h-[320px] md:w-[320px] md:border-[32px]"></div>
+    <div className="pointer-events-none absolute right-[-20%] top-1/2 z-0 h-[400px] w-[400px] -translate-y-1/2 rounded-full border-[24px] border-white/5 md:right-[-5%] md:h-[500px] md:w-[500px] md:border-[32px]"></div>
+    <div className="pointer-events-none absolute right-[-35%] top-1/2 z-0 h-[550px] w-[550px] -translate-y-1/2 rounded-full border-[24px] border-white/5 md:right-[-15%] md:h-[680px] md:w-[680px] md:border-[32px]"></div>
 
-          <div className="relative mt-8 md:mt-0">
-            <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-primary/20 blur-3xl" />
-            <span className="material-symbols-outlined text-[120px] opacity-10">
-              insights
-            </span>
-          </div>
-        </div>
-      </section>
+    <span className="material-symbols-outlined pointer-events-none absolute right-12 top-1/2 z-0 -translate-y-1/2 text-[120px] opacity-20 md:right-28 md:text-[160px]">
+      insights
+    </span>
+
+    <svg 
+      className="pointer-events-none absolute -bottom-4 -right-4 z-0 h-32 w-32 text-white opacity-20 md:-bottom-6 md:-right-2 md:h-40 md:w-40" 
+      viewBox="0 0 24 24" 
+      fill="currentColor"
+    >
+      <path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z" />
+    </svg>
+
+
+    
+    <div className="relative z-10 flex w-full max-w-xl flex-col items-start">
+      <span className="rounded-md bg-white/10 px-3 py-1 font-heading text-[10px] font-bold uppercase tracking-[0.2em] text-teal-100">
+        Voyager Insights
+      </span>
+
+      <h4 className="mt-5 font-heading text-2xl font-bold leading-tight md:text-[32px]">
+        Boost your bookings this summer with AI-driven pricing.
+      </h4>
+
+      <p className="mt-3 text-sm text-white/80 md:text-base">
+        Our latest model predicts a 20% surge in demand for cultural
+        tours. Adjust your availability now.
+      </p>
+
+      <button className="mt-8 rounded-xl bg-white px-6 py-3 font-heading text-sm font-bold text-[#125d4f] transition-colors hover:bg-gray-100 shadow-sm">
+        Apply Optimization
+      </button>
+    </div>
+
+  </div>
+</section>
     </div>
   );
 };

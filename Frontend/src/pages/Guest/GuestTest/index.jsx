@@ -2,9 +2,7 @@ import React from 'react'
 
 const GuestTest = () => {
   return (
-    <div>
-      Guest
-    </div>
+    <div>GuestTest</div>
   )
 }
 
