@@ -3,10 +3,10 @@ import LoginPage from "./pages/Auth/LoginPage";
 import Layout from "./components/Layout";
 import TravelerTest from "./pages/Traveler/TravelerTest";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
-import ProviderTest from "./pages/Provider/ProviderTest";
 import GuideTest from "./pages/Guide/GuideTest";
 import GuestTest from "./pages/Guest/GuestTest";
 import RegisterPage from "./pages/Auth/RegisterPage";
+import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 
 function AppRoutes() {
   const location = useLocation();
@@ -25,7 +25,7 @@ function AppRoutes() {
         <Route index element={<AdminDashboard />} />
       </Route>
       <Route path="/provider" element={<Layout />}>
-        <Route index element={<ProviderTest />} />
+        <Route index element={<ProviderDashboard />} />
       </Route>
       <Route path="/guide" element={<Layout />}>
         <Route index element={<GuideTest />} />
