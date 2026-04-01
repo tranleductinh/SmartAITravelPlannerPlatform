@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function AIPlan() {
+const GuestTest = () => {
   return (
     <div>
-      AIPlan
+      Guest
     </div>
   )
 }
+
+export default GuestTest
