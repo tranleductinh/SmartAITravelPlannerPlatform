@@ -44,7 +44,6 @@ const emptyGuideForm = {
 };
 
 const GuideManagementProvider = () => {
-  // ================= STATE DỮ LIỆU =================
   const [guides, setGuides] = useState([
     {
       id: "tran-thi-mai-chau",
@@ -84,7 +83,6 @@ const GuideManagementProvider = () => {
     },
   ]);
 
-  // ================= THỐNG KÊ =================
   const totalGuides = guides.length;
   const activeNow = useMemo(
     () => guides.filter((g) => g.status === "active").length,
@@ -102,7 +100,6 @@ const GuideManagementProvider = () => {
     [activeNow, assignedBookings, totalGuides],
   );
 
-  // ================= QUẢN LÝ DIALOG =================
   const [formOpen, setFormOpen] = useState(false);
   const [formMode, setFormMode] = useState("create");
   const [editingId, setEditingId] = useState(null);
@@ -111,7 +108,6 @@ const GuideManagementProvider = () => {
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
 
-  // ================= HÀM XỬ LÝ =================
   const openCreate = () => {
     setFormMode("create");
     setEditingId(null);
@@ -128,11 +124,9 @@ const GuideManagementProvider = () => {
     setFormOpen(true);
   };
 
-  // Hàm xử lý Upload File Ảnh cực xịn
   const handleAvatarUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Tạo một URL tạm thời từ file ảnh trong máy mày
       const imageUrl = URL.createObjectURL(file);
       setGuideForm((prev) => ({ ...prev, avatar: imageUrl }));
     }
@@ -148,7 +142,6 @@ const GuideManagementProvider = () => {
       specialty: guideForm.specialty.trim(),
       bookingTitle: guideForm.bookingTitle.trim(),
       bookingCode: guideForm.bookingCode.trim(),
-      // Nếu đéo upload ảnh thì tự lấy chữ cái đầu làm avatar
       avatar:
         guideForm.avatar.trim() ||
         "https://ui-avatars.com/api/?name=" + guideForm.name.charAt(0),
