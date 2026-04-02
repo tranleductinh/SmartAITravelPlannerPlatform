@@ -9,6 +9,7 @@ import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuestTest from "./pages/Guest/GuestTest";
 import BookingSuccess from "./pages/Guest/BookingSuccess";
 import LandingHome from "./pages/LandingHome";
+import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 
 function AppRoutes() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function AppRoutes() {
       </Route>
       <Route path="/provider" element={<Layout />}>
         <Route index element={<ProviderDashboard />} />
+        <Route path="bookings-management" element={<ProviderBookingManagement />} />
       </Route>
       <Route path="/guide" element={<Layout />}>
         <Route index element={<GuideTest />} />
