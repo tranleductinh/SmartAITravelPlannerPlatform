@@ -75,7 +75,7 @@ const activities = [
 
 const ProviderDashboard = () => {
   return (
-    <div className="pt-20 space-y-8 text-on-surface">
+    <div className="space-y-8 text-on-surface">
       <header className="flex items-center justify-between gap-4">
         <div>
           <h2 className="font-heading text-3xl font-extrabold tracking-tight text-on-surface">
