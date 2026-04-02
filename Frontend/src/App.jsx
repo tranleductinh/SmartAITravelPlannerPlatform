@@ -17,7 +17,10 @@ import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 
 import LandingHome from "./pages/LandingHome";
+import ProviderDashboard from "./pages/Provider/ProviderDashboard";
+import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
+
 
 function AppRoutes() {
   const location = useLocation();
