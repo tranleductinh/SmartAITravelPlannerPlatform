@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const ProviderLayout = () => {
   const location = useLocation();
@@ -108,20 +110,21 @@ body { font-family: "Inter", sans-serif; background-color: #f7f9fb; }`}
                   <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant">
                     search
                   </span>
-                  <input
+                  <Input
                     className="h-11 w-72 rounded-full border border-outline-variant/30 bg-surface-container-low px-11 pr-4 text-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary/25 focus:ring-2 focus:ring-primary/15"
                     placeholder="Search in provider pages..."
                     type="text"
                   />
                 </div>
 
-                <button
-                  className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:bg-surface-container-low"
+                <Button
+                  className="relative h-10 w-10 rounded-full text-on-surface-variant transition-colors hover:bg-surface-container-low bg-transparent"
+                  variant="ghost"
                   type="button"
                 >
                   <span className="material-symbols-outlined text-[20px]">notifications</span>
                   <span className="absolute right-[11px] top-[10px] h-2 w-2 rounded-full bg-error" />
-                </button>
+                </Button>
 
                 <div className="flex h-9 w-9 items-center justify-center rounded-full border border-outline-variant/30 bg-surface-container-low text-xs font-bold text-teal-800">
                   P
