@@ -131,160 +131,223 @@ const renderActions = (type) => {
       </div>
     );
   }
+
+  if (type === 'history') {
+    return (
+      <div className="flex justify-end">
+        <Button className="rounded-full" size="icon-sm" variant="ghost">
+          <History className="size-4" />
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex justify-end">
+      <Button className="rounded-full" size="icon-sm" variant="ghost">
+        <Ellipsis className="size-4" />
+      </Button>
+    </div>
+  );
 };
 
 const ProviderBookingManagement = () => {
+  const [selectedTour, setSelectedTour] = useState(tours[0]);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState(filterStatuses[0]);
+
+  const filteredBookings = bookings.filter((booking) => {
+    const matchesTour =
+      selectedTour === 'All Active Tours' || booking.tour === selectedTour;
+    const matchesStatus =
+      selectedStatus === 'All' || booking.status === selectedStatus;
+    const matchesDate =
+      !selectedDate || toInputDateValue(booking.date) === selectedDate;
+
+    return matchesTour && matchesStatus && matchesDate;
+  });
+
   return (
     <div className="space-y-8 pt-20 text-on-surface">
-      <section className="rounded-3xl bg-surface-container-lowest p-6 shadow-[0_20px_40px_rgba(25,28,30,0.04)]">
-        <div className="flex flex-wrap items-end gap-6">
-          <div className="min-w-[220px] flex-1">
-            <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
-              Tour Name
-            </label>
-            <select className="w-full rounded-xl border-0 bg-surface-container-low py-3 px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20">
-              {tours.map((tour) => (
-                <option key={tour}>{tour}</option>
-              ))}
-            </select>
-          </div>
+      <Card className="rounded-3xl border-none bg-surface-container-lowest py-0 shadow-[0_20px_40px_rgba(25,28,30,0.04)]">
+        <CardHeader className="px-6 pt-6 pb-3">
+          <CardTitle className="font-heading text-lg font-bold">
+            Booking Filters
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="px-6 pb-6">
+          <div className="flex flex-wrap items-end gap-6">
+            <div className="min-w-[220px] flex-1">
+              <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
+                Tour Name
+              </label>
+              <select
+                className="h-12 w-full rounded-xl border-0 bg-surface-container-low px-4 text-sm text-on-surface outline-none ring-0 focus-visible:ring-2 focus-visible:ring-primary/20"
+                value={selectedTour}
+                onChange={(event) => setSelectedTour(event.target.value)}
+              >
+                {tours.map((tour) => (
+                  <option key={tour}>{tour}</option>
+                ))}
+              </select>
+            </div>
 
-          <div className="min-w-[220px] flex-1">
-            <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
-              Booking Date
-            </label>
-            <input
-              className="w-full rounded-xl border-0 bg-surface-container-low py-3 px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20"
-              type="date"
-            />
-          </div>
+            <div className="min-w-[220px] flex-1">
+              <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
+                Booking Date
+              </label>
+              <Input
+                className="h-12 rounded-xl border-0 bg-surface-container-low px-4"
+                type="date"
+                value={selectedDate}
+                onChange={(event) => setSelectedDate(event.target.value)}
+              />
+            </div>
 
-          <div className="min-w-[220px] flex-1">
-            <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
-              Status
-            </label>
-            <div className="flex flex-wrap gap-2">
-              {filterStatuses.map((status, index) => (
-                <button
-                  key={status}
-                  className={
-                    index === 0
-                      ? 'rounded-xl bg-primary px-4 py-3 text-xs font-semibold text-on-primary'
-                      : 'rounded-xl bg-surface-container-low px-4 py-3 text-xs font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high'
-                  }
-                >
-                  {status}
-                </button>
-              ))}
+            <div className="min-w-[220px] flex-1">
+              <label className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">
+                Status
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {filterStatuses.map((status) => (
+                  <Button
+                    key={status}
+                    className="rounded-xl px-4"
+                    size="lg"
+                    variant={selectedStatus === status ? 'default' : 'outline'}
+                    onClick={() => setSelectedStatus(status)}
+                  >
+                    {status}
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </CardContent>
+      </Card>
 
-      <section className="overflow-hidden rounded-[2rem] bg-surface-container-lowest shadow-[0_20px_40px_rgba(25,28,30,0.04)]">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[920px] border-collapse text-left">
-            <thead>
-              <tr className="bg-slate-200">
-                <th className="px-8 py-5 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
-                  Customer
-                </th>
-                <th className="px-8 py-5 text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
-                  Tour Details
-                </th>
-                <th className="px-8 py-5 text-center text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
-                  Date
-                </th>
-                <th className="px-8 py-5 text-center text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
-                  Status
-                </th>
-                <th className="px-8 py-5 text-right text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
-                  Actions
-                </th>
-              </tr>
-            </thead>
+      <Card className="overflow-hidden rounded-[2rem] border-none bg-surface-container-lowest py-0 shadow-[0_20px_40px_rgba(25,28,30,0.04)]">
+        <CardHeader className="px-6 py-5">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <CardTitle className="font-heading text-lg font-bold">
+                Incoming Bookings
+              </CardTitle>
+              <p className="text-sm text-on-surface-variant">
+                Review requests, track confirmations and inspect booking history.
+              </p>
+            </div>
+            <span className="inline-flex w-fit rounded-full border border-border px-3 py-1 text-xs font-bold text-foreground">
+              {filteredBookings.length} active rows
+            </span>
+          </div>
+        </CardHeader>
 
-            <tbody>
-              {bookings.map((booking) => (
-                <tr
-                  key={`${booking.customer}-${booking.date}-${booking.time}`}
-                  className="group transition-colors hover:bg-surface-container-low"
-                >
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-4">
-                      <div className="h-11 w-11 overflow-hidden rounded-xl shadow-sm">
-                        <img
-                          alt={booking.avatarAlt}
-                          className="h-full w-full object-cover"
-                          src={booking.avatar}
-                        />
-                      </div>
-                      <div>
-                        <p className="font-heading font-bold text-on-surface">
-                          {booking.customer}
-                        </p>
-                        <p className="text-xs text-on-surface-variant">
-                          {booking.email}
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-
-                  <td className="px-8 py-6">
-                    <p className="font-bold text-on-surface">{booking.tour}</p>
-                    <p className="flex items-center gap-1 text-xs text-on-surface-variant">
-                      <span className="material-symbols-outlined text-[14px]">
-                        group
-                      </span>
-                      {booking.guests}
-                    </p>
-                  </td>
-
-                  <td className="px-8 py-6 text-center">
-                    <p className="font-semibold text-on-surface">{booking.date}</p>
-                    <p className="text-[11px] font-medium uppercase text-on-surface-variant">
-                      {booking.time}
-                    </p>
-                  </td>
-
-                  <td className="px-8 py-6 text-center">
-                    <span
-                      className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-tight ${booking.statusClass}`}
-                    >
-                      {booking.status}
-                    </span>
-                  </td>
-
-                  <td className="px-8 py-6">{renderActions(booking.actions)}</td>
+        <CardContent className="px-0 pb-0">
+          <div className="overflow-x-auto">
+            <table className="min-w-[920px] w-full text-sm">
+              <thead>
+                <tr className="border-none bg-slate-200">
+                  <th className="px-8 py-5 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
+                    Customer
+                  </th>
+                  <th className="px-8 py-5 text-left text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
+                    Tour Details
+                  </th>
+                  <th className="px-8 py-5 text-center text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
+                    Date
+                  </th>
+                  <th className="px-8 py-5 text-center text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
+                    Status
+                  </th>
+                  <th className="px-8 py-5 text-right text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">
+                    Actions
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+              </thead>
+
+              <tbody>
+                {filteredBookings.map((booking) => (
+                  <tr
+                    key={`${booking.customer}-${booking.date}-${booking.time}`}
+                    className="group border-b border-slate-100 transition-colors hover:bg-surface-container-low"
+                  >
+                    <td className="px-8 py-6 align-middle">
+                      <div className="flex items-center gap-4">
+                        <Avatar className="h-11 w-11 rounded-xl">
+                          <AvatarImage alt={booking.avatarAlt} src={booking.avatar} />
+                          <AvatarFallback className="rounded-xl font-semibold">
+                            {getInitials(booking.customer)}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <p className="font-heading font-bold text-on-surface">
+                            {booking.customer}
+                          </p>
+                          <p className="text-xs text-on-surface-variant">
+                            {booking.email}
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td className="px-8 py-6 align-middle">
+                      <p className="font-bold text-on-surface">{booking.tour}</p>
+                      <p className="flex items-center gap-1.5 text-xs text-on-surface-variant">
+                        <Users className="size-3.5" />
+                        {booking.guests}
+                      </p>
+                    </td>
+
+                    <td className="px-8 py-6 text-center align-middle">
+                      <p className="font-semibold text-on-surface">{booking.date}</p>
+                      <p className="text-[11px] font-medium uppercase text-on-surface-variant">
+                        {booking.time}
+                      </p>
+                    </td>
+
+                    <td className="px-8 py-6 text-center align-middle">
+                      <span
+                        className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-tight ${statusVariantMap[booking.status]}`}
+                      >
+                        {booking.status}
+                      </span>
+                    </td>
+
+                    <td className="px-8 py-6 align-middle">
+                      {renderActions(booking.actions)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </CardContent>
+      </Card>
 
       <section className="flex flex-col gap-4 px-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm font-medium text-on-surface-variant">
-          Showing <span className="font-bold text-on-surface">4</span> of 24
-          bookings
+          Showing{' '}
+          <span className="font-bold text-on-surface">{filteredBookings.length}</span>{' '}
+          of {bookings.length} bookings
         </p>
 
         <div className="flex gap-2">
-          <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-container text-on-surface-variant transition-colors hover:bg-surface-container-high">
-            <span className="material-symbols-outlined">chevron_left</span>
-          </button>
-          <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-sm font-bold text-on-primary">
+          <Button className="rounded-xl" size="icon" variant="outline">
+            <ChevronLeft className="size-4" />
+          </Button>
+          <Button className="h-10 w-10 rounded-xl text-sm font-bold" variant="default">
             1
-          </button>
-          <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-container-lowest text-sm font-bold text-on-surface-variant transition-colors hover:bg-surface-container">
+          </Button>
+          <Button className="h-10 w-10 rounded-xl text-sm font-bold" variant="outline">
             2
-          </button>
-          <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-container-lowest text-sm font-bold text-on-surface-variant transition-colors hover:bg-surface-container">
+          </Button>
+          <Button className="h-10 w-10 rounded-xl text-sm font-bold" variant="outline">
             3
-          </button>
-          <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-container text-on-surface-variant transition-colors hover:bg-surface-container-high">
-            <span className="material-symbols-outlined">chevron_right</span>
-          </button>
+          </Button>
+          <Button className="rounded-xl" size="icon" variant="outline">
+            <ChevronRight className="size-4" />
+          </Button>
         </div>
       </section>
     </div>
