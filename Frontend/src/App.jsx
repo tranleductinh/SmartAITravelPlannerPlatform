@@ -11,6 +11,9 @@ import GuideTest from "./pages/Guide/GuideTest";
 import GuestTest from "./pages/Guest/GuestTest";
 import BookingSuccess from "./pages/Guest/BookingSuccess";
 
+import ProviderDashboard from "./pages/Provider/ProviderDashboard";
+import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
+import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
 
 import LandingHome from "./pages/LandingHome";
