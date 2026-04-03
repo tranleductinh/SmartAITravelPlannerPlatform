@@ -32,15 +32,39 @@ const PAGE_META = {
   },
 };
 
+/** More specific routes first. */
+const ROUTE_TITLES = [
+  { test: (p) => p.startsWith('/guide/tour-detail-ops'), title: 'Guide Tour Detail Ops' },
+  { test: (p) => p.startsWith('/guide/live-tour-tracking'), title: 'Guide Live Tour Tracking' },
+  { test: (p) => p.startsWith('/guide/assigned-tours'), title: 'Assigned Tours List Guide' },
+  { test: (p) => p === '/guide' || p === '/guide/', title: 'Guide Dashboard' },
+  { test: (p) => p.startsWith('/provider/guide-management'), title: 'Guide Management Provider' },
+  { test: (p) => p.startsWith('/provider/bookings-management'), title: 'Bookings Management' },
+  { test: (p) => p === '/provider' || p === '/provider/', title: 'Provider Dashboard' },
+  { test: (p) => p.startsWith('/traveler/') || p === '/traveler', title: 'Traveler Dashboard' },
+  { test: (p) => p.startsWith('/admin/') || p === '/admin', title: 'Admin Dashboard' },
+];
+
+function resolveBreadcrumbTitle(pathname, fallbackTitle) {
+  const normalized = pathname.replace(/\/+$/, '') || '/';
+  const hit = ROUTE_TITLES.find(({ test }) => test(normalized));
+  return hit?.title ?? fallbackTitle;
+}
+
 const Header = () => {
   const location = useLocation();
 
   const isProviderBookingsPage =
     location.pathname === '/provider/bookings-management';
 
-  const currentMeta =
+  const baseMeta =
     Object.entries(PAGE_META).find(([path]) => location.pathname.startsWith(path))
       ?.[1] ?? PAGE_META['/provider'];
+
+  const currentMeta = {
+    ...baseMeta,
+    title: resolveBreadcrumbTitle(location.pathname, baseMeta.title),
+  };
 
   if (isProviderBookingsPage) {
     return (

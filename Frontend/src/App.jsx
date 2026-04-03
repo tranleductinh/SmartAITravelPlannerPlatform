@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import LandingHome from "./pages/LandingHome";
@@ -14,7 +14,12 @@ import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
+<<<<<<< HEAD
 import PublicTourTracking from "./pages/Guest/PublicTourTracking";
+=======
+import AssignedToursList from "./pages/Guide/AssignedToursList";
+import TourDetailOps from "./pages/Guide/TourDetailOps";
+>>>>>>> bc96c8a (feat: add TourDetailOps component for managing tour operations and details)
 
 function AppRoutes() {
   const location = useLocation();
@@ -43,6 +48,12 @@ function AppRoutes() {
 
       <Route path="/guide" element={<Layout />}>
         <Route index element={<GuideTest />} />
+        <Route path="assigned-tours" element={<AssignedToursList />} />
+        <Route
+          path="tour-detail-ops"
+          element={<Navigate to="/guide/tour-detail-ops/da-nang-coastal" replace />}
+        />
+        <Route path="tour-detail-ops/:tourId" element={<TourDetailOps />} />
         <Route path="live-tour-tracking" element={<GuideLiveTourTracking />} />
       </Route>
 
