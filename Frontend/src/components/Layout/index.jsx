@@ -8,7 +8,7 @@ import HeaderGuest from "@/components/HeaderGuest";
 export default function Layout() {
   const location = useLocation();
   const roleCurrent = ["admin", "traveler", "guide", "provider"].find((role) =>
-    location.pathname.startsWith(`/${role}`)
+    location.pathname.startsWith(`/${role}`),
   );
   const hasAppShell = Boolean(roleCurrent);
 
@@ -17,22 +17,25 @@ export default function Layout() {
       <div className="flex w-full">
         {hasAppShell && <AppSidebar />}
 
-        <main className="flex-1">
-          {hasAppShell ? <Header /> : <HeaderGuest />}
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={location.pathname}
-              className="h-full p-8 space-y-8"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Outlet />
-            </motion.div>
-          </AnimatePresence>
-        </main>
+        {hasAppShell ? <Header /> : <HeaderGuest />}
+        <div className="app-shell-page w-full pt-22 px-3 pb-24 md:px-4 md:pb-8 lg:px-5">
+          <div className="flex min-h-screen bg-surface">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={location.pathname}
+                className="h-full space-y-8"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+              >
+                <main className="flex-1 md:ml-64 p-6 md:p-10">
+                  <Outlet />
+                </main>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </SidebarProvider>
   );
