@@ -14,6 +14,9 @@ import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
+import AssignedToursList from "./pages/Guide/AssignedToursList";
+import TourDetailOps from "./pages/Guide/TourDetailOps";
+import PublicTourTracking from "./pages/Guest/PublicTourTracking";
 
 function AppRoutes() {
   const location = useLocation();
