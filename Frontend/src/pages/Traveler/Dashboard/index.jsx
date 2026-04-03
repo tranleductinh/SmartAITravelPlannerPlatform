@@ -32,7 +32,7 @@ const TravelerDashboard = () => {
                   <div className="pt-4">
   {/* Giữ đường dẫn AI planner cho task sau */}
   <Link
-    to="/traveler/ai-plan"
+    to="/traveler/ai-travel-planner"
     className="group inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-bold text-teal-700 shadow-xl transition-all hover:bg-slate-50 hover:shadow-md"
   >
     <span
@@ -138,6 +138,7 @@ const TravelerDashboard = () => {
               </section>
 
               {/* Recommended for you */}
+              {/* Recommended for you */}
               <section>
                 <div className="mb-6 flex items-center justify-between">
                   <div>
@@ -152,87 +153,88 @@ const TravelerDashboard = () => {
 
                 <div className="-mx-2 flex space-x-6 overflow-x-auto px-2 pb-6 no-scrollbar">
                   {/* Card 1 */}
-                  <button
-                    type="button"
-                    className="flex w-72 shrink-0 cursor-pointer flex-col rounded-[2rem] bg-surface-container-low p-5 text-left transition-colors hover:bg-surface-container-high"
+                  <Link
+                    to="/traveler/tour-detail"
+                    className="flex w-72 shrink-0 cursor-pointer flex-col rounded-[2rem] bg-surface-container-low p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
                     <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
                       <span className="material-symbols-outlined text-3xl text-teal-600">
                         temple_buddhist
                       </span>
                     </div>
-                    <h4 className="mb-1 font-headline text-xl font-bold">
+                    <h4 className="mb-1 font-headline text-xl font-bold text-slate-900">
                       Da Nang, Vietnam
                     </h4>
                     <p className="mb-6 line-clamp-2 text-sm text-slate-500">
                       A premium Da Nang itinerary blending airport support,
                       landmark visits, local food and passenger tracking.
                     </p>
-                    <div className="flex items-center justify-between">
-                      <div className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-on-surface-variant">
+                    <div className="mt-auto flex items-center justify-between">
+                      <div className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm">
                         est. $289
                       </div>
                       <div className="flex items-center text-xs font-bold text-teal-700">
                         Coastal
                       </div>
                     </div>
-                  </button>
+                  </Link>
 
                   {/* Card 2 */}
-                  <button
-                    type="button"
-                    className="flex w-72 shrink-0 cursor-pointer flex-col rounded-[2rem] bg-surface-container-low p-5 text-left transition-colors hover:bg-surface-container-high"
+                  <Link
+                    to="/traveler/tour-detail"
+                    className="flex w-72 shrink-0 cursor-pointer flex-col rounded-[2rem] bg-surface-container-low p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
                     <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
                       <span className="material-symbols-outlined text-3xl text-teal-600">
                         temple_buddhist
                       </span>
                     </div>
-                    <h4 className="mb-1 font-headline text-xl font-bold">
+                    <h4 className="mb-1 font-headline text-xl font-bold text-slate-900">
                       Hoi An, Vietnam
                     </h4>
                     <p className="mb-6 line-clamp-2 text-sm text-slate-500">
                       Private pickup, old town storytelling and a premium
                       lantern workshop in Hoi An.
                     </p>
-                    <div className="flex items-center justify-between">
-                      <div className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-on-surface-variant">
+                    <div className="mt-auto flex items-center justify-between">
+                      <div className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm">
                         est. $148
                       </div>
                       <div className="flex items-center text-xs font-bold text-teal-700">
                         Lanterns
                       </div>
                     </div>
-                  </button>
+                  </Link>
 
                   {/* Card 3 */}
-                  <button
-                    type="button"
-                    className="flex w-72 shrink-0 cursor-pointer flex-col rounded-[2rem] bg-surface-container-low p-5 text-left transition-colors hover:bg-surface-container-high"
+                  <Link
+                    to="/traveler/tour-detail"
+                    className="flex w-72 shrink-0 cursor-pointer flex-col rounded-[2rem] bg-surface-container-low p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
                     <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
                       <span className="material-symbols-outlined text-3xl text-teal-600">
                         directions_boat
                       </span>
                     </div>
-                    <h4 className="mb-1 font-headline text-xl font-bold">
+                    <h4 className="mb-1 font-headline text-xl font-bold text-slate-900">
                       Ha Long Bay, Vietnam
                     </h4>
                     <p className="mb-6 line-clamp-2 text-sm text-slate-500">
                       Luxury cruise through Ha Long Bay with curated caves,
                       lagoons and cultural immersion.
                     </p>
-                    <div className="flex items-center justify-between">
-                      <div className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-on-surface-variant">
+                    <div className="mt-auto flex items-center justify-between">
+                      <div className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm">
                         est. $1249
                       </div>
                       <div className="flex items-center text-xs font-bold text-teal-700">
                         Cruise
                       </div>
                     </div>
-                  </button>
+                  </Link>
                 </div>
               </section>
+
             </div>
 
             <div className="space-y-8 lg:col-span-4">
@@ -244,7 +246,7 @@ const TravelerDashboard = () => {
                 <div className="space-y-4">
                   {/* Generate AI Plan */}
                   <Link
-                    to="/traveler/ai-plan"
+                    to="/traveler/ai-travel-planner"
                     className="group flex w-full items-center justify-between rounded-2xl bg-teal-50 p-4 text-teal-700 transition-all hover:bg-teal-100 hover:text-teal-900"
                   >
                     <span className="flex items-center space-x-4">
