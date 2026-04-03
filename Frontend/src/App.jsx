@@ -19,6 +19,7 @@ import AssignedToursList from "./pages/Guide/AssignedToursList";
 import TourDetailOps from "./pages/Guide/TourDetailOps";
 import TourTracking from "./pages/Traveler/TourTracking";
 import MyBookingTourTraveler from "./pages/Traveler/MyBookingTourTraveler";
+import AITravelPlanner from "./pages/Traveler/AITravelPlanner";
 
 function AppRoutes() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function AppRoutes() {
         <Route index element={<TravelerTest />} />
         <Route path="tour-tracking" element={<TourTracking />} />
         <Route path="my-booking-traveler" element={<MyBookingTourTraveler />} />
+        <Route path="ai-travel-planner" element={<AITravelPlanner />} />
       </Route>
 
       <Route path="/admin" element={<Layout />}>
