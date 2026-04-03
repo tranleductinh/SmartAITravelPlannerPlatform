@@ -14,12 +14,9 @@ import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
-<<<<<<< HEAD
 import PublicTourTracking from "./pages/Guest/PublicTourTracking";
-=======
 import AssignedToursList from "./pages/Guide/AssignedToursList";
 import TourDetailOps from "./pages/Guide/TourDetailOps";
->>>>>>> bc96c8a (feat: add TourDetailOps component for managing tour operations and details)
 
 function AppRoutes() {
   const location = useLocation();
