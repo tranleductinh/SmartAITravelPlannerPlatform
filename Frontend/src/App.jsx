@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import LandingHome from "./pages/LandingHome";
@@ -21,8 +21,10 @@ import TourTracking from "./pages/Traveler/TourTracking";
 import MyBookingTourTraveler from "./pages/Traveler/MyBookingTourTraveler";
 import AITravelPlanner from "./pages/Traveler/AITravelPlanner";
 import ProviderAndAdminLogin from "./pages/Auth/ProviderAndAdminLogin";
-import GuideLogin from "./pages/Auth/LoginPage/GuideLogin";
+import GuideLogin from "./pages/Auth/GuideLogin";
 import ContentModeration from "./pages/Admin/ContentModeration";
+import { AuthContextProvider } from "./context/authContext";
+import { Toaster } from "react-hot-toast";
 
 function AppRoutes() {
   const location = useLocation();
@@ -32,7 +34,10 @@ function AppRoutes() {
       <Route path="/" element={<LandingHome />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
-      <Route path="/provider-and-admin-login-management" element={<ProviderAndAdminLogin />} />
+      <Route
+        path="/provider-and-admin-login-management"
+        element={<ProviderAndAdminLogin />}
+      />
       <Route path="/guide-staff-login" element={<GuideLogin />} />
 
       <Route path="/traveler" element={<Layout />}>
@@ -44,7 +49,7 @@ function AppRoutes() {
 
       <Route path="/admin" element={<Layout />}>
         <Route index element={<AdminDashboard />} />
-        <Route path="content-moderation" element={<ContentModeration   />} />
+        <Route path="content-moderation" element={<ContentModeration />} />
       </Route>
 
       <Route path="/provider" element={<Layout />}>
@@ -65,9 +70,10 @@ function AppRoutes() {
 
       <Route path="/guest" element={<Layout />}>
         <Route path="public-tour-tracking" element={<PublicTourTracking />} />
-        <Route path="booking-success-and-tracking-link" element={<BookingSuccess />} />
-
-
+        <Route
+          path="booking-success-and-tracking-link"
+          element={<BookingSuccess />}
+        />
       </Route>
     </Routes>
   );
@@ -76,7 +82,10 @@ function AppRoutes() {
 function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <Toaster toastOptions={{ duration: 4000 }} />
+      <AuthContextProvider>
+        <AppRoutes />
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }
