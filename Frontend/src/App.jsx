@@ -17,6 +17,7 @@ import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
 import PublicTourTracking from "./pages/Guest/PublicTourTracking";
 import AssignedToursList from "./pages/Guide/AssignedToursList";
 import TourDetailOps from "./pages/Guide/TourDetailOps";
+import TourTracking from "./pages/Traveler/TourTracking";
 
 function AppRoutes() {
   const location = useLocation();
@@ -26,8 +27,10 @@ function AppRoutes() {
       <Route path="/" element={<LandingHome />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
+
       <Route path="/traveler" element={<Layout />}>
         <Route index element={<TravelerTest />} />
+        <Route path="tour-tracking" element={<TourTracking />} />
       </Route>
 
       <Route path="/admin" element={<Layout />}>
