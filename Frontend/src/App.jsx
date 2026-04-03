@@ -16,7 +16,6 @@ import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagemen
 import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
 import PublicTourTracking from "./pages/Guest/PublicTourTracking";
 import AssignedToursList from "./pages/Guide/AssignedToursList";
-import TourDetailOps from "./pages/Guide/TourDetailOps";
 import TourTracking from "./pages/Traveler/TourTracking";
 import MyBookingTourTraveler from "./pages/Traveler/MyBookingTourTraveler";
 import AITravelPlanner from "./pages/Traveler/AITravelPlanner";
@@ -69,11 +68,9 @@ function AppRoutes() {
         />
       </Route>
 
-      {/* Guide Routes */}
       <Route path="/guide" element={<Layout />}>
         <Route index element={<GuideTest />} />
         <Route path="assigned-tours" element={<AssignedToursList />} />
-        {/* Đã xóa dòng Route TourDetailOps gây lỗi ở đây */}
         <Route path="live-tour-tracking" element={<GuideLiveTourTracking />} />
       </Route>
 
