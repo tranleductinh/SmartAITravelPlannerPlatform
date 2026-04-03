@@ -16,6 +16,7 @@ import BookingSuccess from "./pages/Guest/BookingSuccess";
 import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
+import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
 
 import LandingHome from "./pages/LandingHome";
 import ProviderDashboard from "./pages/Provider/ProviderDashboard";
@@ -47,6 +48,7 @@ function AppRoutes() {
 
       <Route path="/guide" element={<Layout />}>
         <Route index element={<GuideTest />} />
+        <Route path="live-tour-tracking" element={<GuideLiveTourTracking />} />
       </Route>
 
    
