@@ -73,7 +73,6 @@ const MENU = {
       href: "/live-tour-tracking",
       icon: Share2,
     },
-    { name: "Guide Tour Detail Ops", href: "/tour-detail-ops", icon: Map },
   ],
 
   provider: [

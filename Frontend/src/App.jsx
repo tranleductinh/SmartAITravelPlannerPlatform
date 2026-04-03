@@ -46,10 +46,6 @@ function AppRoutes() {
       <Route path="/guide" element={<Layout />}>
         <Route index element={<GuideTest />} />
         <Route path="assigned-tours" element={<AssignedToursList />} />
-        <Route
-          path="tour-detail-ops"
-          element={<Navigate to="/guide/tour-detail-ops/da-nang-coastal" replace />}
-        />
         <Route path="tour-detail-ops/:tourId" element={<TourDetailOps />} />
         <Route path="live-tour-tracking" element={<GuideLiveTourTracking />} />
       </Route>
