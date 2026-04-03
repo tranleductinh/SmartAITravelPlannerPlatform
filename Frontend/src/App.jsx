@@ -21,6 +21,7 @@ import TourTracking from "./pages/Traveler/TourTracking";
 import MyBookingTourTraveler from "./pages/Traveler/MyBookingTourTraveler";
 import AITravelPlanner from "./pages/Traveler/AITravelPlanner";
 import ProviderAndAdminLogin from "./pages/Auth/ProviderAndAdminLogin";
+import GuideLogin from "./pages/Auth/LoginPage/GuideLogin";
 
 function AppRoutes() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function AppRoutes() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
       <Route path="/provider-and-admin-login-management" element={<ProviderAndAdminLogin />} />
+      <Route path="/guide-staff-login" element={<GuideLogin />} />
 
       <Route path="/traveler" element={<Layout />}>
         <Route index element={<TravelerTest />} />
