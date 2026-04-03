@@ -31,7 +31,7 @@ const MENU = {
     { name: "Traveler Dashboard", href: "", icon: LayoutDashboard },
     { name: "Tour List", href: "/tour-list", icon: Plane },
     { name: "Tour Detail", href: "/tour-detail", icon: Mountain },
-    { name: "AI Travel Planner", href: "/ai-plan", icon: Sparkles },
+    { name: "AI Travel Planner", href: "/ai-travel-planner", icon: Sparkles },
     {
       name: "Chat AI Assistant",
       href: "/chat-ai-assistant",
