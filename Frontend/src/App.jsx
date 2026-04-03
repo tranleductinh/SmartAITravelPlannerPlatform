@@ -20,6 +20,7 @@ import TourDetailOps from "./pages/Guide/TourDetailOps";
 import TourTracking from "./pages/Traveler/TourTracking";
 import MyBookingTourTraveler from "./pages/Traveler/MyBookingTourTraveler";
 import AITravelPlanner from "./pages/Traveler/AITravelPlanner";
+import ProviderAndAdminLogin from "./pages/Auth/ProviderAndAdminLogin";
 
 function AppRoutes() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function AppRoutes() {
       <Route path="/" element={<LandingHome />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<RegisterPage />} />
+      <Route path="/provider-and-admin-login-management" element={<ProviderAndAdminLogin />} />
 
       <Route path="/traveler" element={<Layout />}>
         <Route index element={<TravelerTest />} />
