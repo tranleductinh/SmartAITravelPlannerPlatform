@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
-
 import Layout from "./components/Layout";
-import ProviderLayout from "./components/ProviderLayout";
 import LandingHome from "./pages/LandingHome";
-import LoginPage from "./pages/Auth/LoginPage"; 
+import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 
 import TravelerTest from "./pages/Traveler/TravelerTest";
@@ -17,12 +15,6 @@ import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
-
-import LandingHome from "./pages/LandingHome";
-import ProviderDashboard from "./pages/Provider/ProviderDashboard";
-import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
-import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
-
 
 function AppRoutes() {
   const location = useLocation();
@@ -40,10 +32,13 @@ function AppRoutes() {
         <Route index element={<AdminDashboard />} />
       </Route>
 
-      <Route path="/provider" element={<ProviderLayout />}>
+      <Route path="/provider" element={<Layout />}>
         <Route index element={<ProviderDashboard />} />
         <Route path="guide-management" element={<GuideManagementProvider />} />
-        <Route path="bookings-management" element={<ProviderBookingManagement />} />
+        <Route
+          path="bookings-management"
+          element={<ProviderBookingManagement />}
+        />
       </Route>
 
       <Route path="/guide" element={<Layout />}>
@@ -51,7 +46,6 @@ function AppRoutes() {
         <Route path="live-tour-tracking" element={<GuideLiveTourTracking />} />
       </Route>
 
-   
       <Route path="/guest" element={<Layout />}>
         <Route index element={<GuestTest />} />
         <Route path="booking-success" element={<BookingSuccess />} />
