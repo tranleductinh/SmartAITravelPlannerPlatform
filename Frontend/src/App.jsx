@@ -22,6 +22,7 @@ import MyBookingTourTraveler from "./pages/Traveler/MyBookingTourTraveler";
 import AITravelPlanner from "./pages/Traveler/AITravelPlanner";
 import ProviderAndAdminLogin from "./pages/Auth/ProviderAndAdminLogin";
 import GuideLogin from "./pages/Auth/LoginPage/GuideLogin";
+import ContentModeration from "./pages/Admin/ContentModeration";
 
 function AppRoutes() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function AppRoutes() {
 
       <Route path="/admin" element={<Layout />}>
         <Route index element={<AdminDashboard />} />
+        <Route path="content-moderation" element={<ContentModeration   />} />
       </Route>
 
       <Route path="/provider" element={<Layout />}>
