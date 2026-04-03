@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MapPin, MapPinned, Ticket } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 const HeaderGuest = () => {
+  const location = useLocation();
+  const isBookingSuccessPage = location.pathname === "/guest/booking-success-and-tracking-link";
   return (
     <header className="fixed top-0 right-0 left-0 z-50 h-16 border-b border-outline-variant/20 bg-white/92 px-6 backdrop-blur-xl shadow-sm">
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 shrink-0">
+        <Link to="/" className="flex items-center gap-3 shrink-0">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/20">
             <MapPinned className="h-5 w-5" />
           </div>
@@ -24,22 +26,22 @@ const HeaderGuest = () => {
 
         {/* Navigation */}
         <nav className="no-scrollbar hidden items-center gap-2 overflow-x-auto md:flex">
-          <Link href="/pages/public-tour-tracking">
+          <Link to="/guest/public-tour-tracking">
             <Button
-              variant="secondary"
-              className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold bg-teal-50 text-teal-700"
+              
+              className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${isBookingSuccessPage === false ? 'bg-teal-50 text-teal-700' : 'bg-0 text-slate-500 hover:bg-slate-100'} `}
             >
               <MapPinned className="h-4 w-4 fill-current" />
               Public Tour Tracking
             </Button>
           </Link>
 
-          <Link href="/pages/booking-success-and-tracking-link">
+          <Link to="/guest/booking-success-and-tracking-link">
             <Button
-              variant="ghost"
-              className="flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-slate-500 hover:bg-slate-100"
+              
+              className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${isBookingSuccessPage ? 'bg-teal-50 text-teal-700' : 'bg-0 text-slate-500 hover:bg-slate-100'} `}
             >
-              <Ticket className="h-4 w-4" />
+              <Ticket className="h-4  w-4" />
               Booking Success
             </Button>
           </Link>

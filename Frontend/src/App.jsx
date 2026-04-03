@@ -8,13 +8,13 @@ import RegisterPage from "./pages/Auth/RegisterPage";
 import TravelerTest from "./pages/Traveler/TravelerTest";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import GuideTest from "./pages/Guide/GuideTest";
-import GuestTest from "./pages/Guest/GuestTest";
 import BookingSuccess from "./pages/Guest/BookingSuccess";
 
 import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
 import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 import GuideLiveTourTracking from "./pages/Guide/GuideLiveTourTracking";
+import PublicTourTracking from "./pages/Guest/PublicTourTracking";
 import AssignedToursList from "./pages/Guide/AssignedToursList";
 import TourDetailOps from "./pages/Guide/TourDetailOps";
 
@@ -55,8 +55,10 @@ function AppRoutes() {
       </Route>
 
       <Route path="/guest" element={<Layout />}>
-        <Route index element={<GuestTest />} />
-        <Route path="booking-success" element={<BookingSuccess />} />
+        <Route path="public-tour-tracking" element={<PublicTourTracking />} />
+        <Route path="booking-success-and-tracking-link" element={<BookingSuccess />} />
+
+
       </Route>
     </Routes>
   );
