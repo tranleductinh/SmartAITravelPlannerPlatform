@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import {
   Check,
+  BusFront,
   ChevronLeft,
   ChevronRight,
   Ellipsis,
   History,
+  Hotel,
   Users,
   X,
 } from "lucide-react";
@@ -26,6 +28,7 @@ const bookings = [
       "Portrait of a young woman with a friendly smile, outdoor natural lighting",
     tour: "Alpine Peaks Helicopter Tour",
     guests: "2 Adults, 1 Child",
+    card: "Private SUV",
     date: "Oct 24, 2023",
     time: "10:30 AM",
     status: "Pending",
@@ -110,6 +113,25 @@ const toInputDateValue = (displayDate) => {
   return parsedDate.toISOString().split("T")[0];
 };
 
+const getTravelerCountFromGuests = (guests) => {
+  if (!guests) return 0;
+
+  const matches = guests.match(/\d+/g);
+  if (!matches) return 0;
+
+  return matches.reduce((total, current) => total + Number(current), 0);
+};
+
+const formatTravelersLabel = (guests) => {
+  const travelerCount = getTravelerCountFromGuests(guests);
+
+  if (!travelerCount) {
+    return guests || "Travelers";
+  }
+
+  return `${travelerCount} ${travelerCount === 1 ? "Traveler" : "Travelers"}`;
+};
+
 const renderActions = (type) => {
   if (type === "decision") {
     return (
@@ -162,7 +184,7 @@ const ProviderBookingManagement = () => {
   });
 
   return (
-    <div className="space-y-8 pt-20 text-on-surface">
+    <div className="space-y-8 text-on-surface">
       <Card className="rounded-3xl border-none bg-surface-container-lowest py-0 shadow-[0_20px_40px_rgba(25,28,30,0.04)]">
         <CardHeader className="px-6 pt-6 pb-3">
           <CardTitle className="font-heading text-lg font-bold">
@@ -293,10 +315,20 @@ const ProviderBookingManagement = () => {
                       <p className="font-bold text-on-surface">
                         {booking.tour}
                       </p>
-                      <p className="flex items-center gap-1.5 text-xs text-on-surface-variant">
-                        <Users className="size-3.5" />
-                        {booking.guests}
-                      </p>
+                      <div className="mt-2 space-y-1 text-xs text-on-surface-variant">
+                        <p className="flex items-center gap-1.5">
+                          <Users className="size-3.5" />
+                          {formatTravelersLabel(booking.guests)}
+                        </p>
+                        <p className="flex items-center gap-1.5">
+                          <Hotel className="size-3.5" />
+                          {booking.accommodation ?? "Boutique Caldera Suite"}
+                        </p>
+                        <p className="flex items-center gap-1.5">
+                          <BusFront className="size-3.5" />
+                          {booking.transport ?? booking.card ?? "Concierge Van"}
+                        </p>
+                      </div>
                     </td>
 
                     <td className="px-8 py-6 text-center align-middle">
