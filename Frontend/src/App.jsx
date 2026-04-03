@@ -13,9 +13,14 @@ import GuideTest from "./pages/Guide/GuideTest";
 import GuestTest from "./pages/Guest/GuestTest";
 import BookingSuccess from "./pages/Guest/BookingSuccess";
 
-
 import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
+import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
+
+import LandingHome from "./pages/LandingHome";
+import ProviderDashboard from "./pages/Provider/ProviderDashboard";
+import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
+import ProviderBookingManagement from "./pages/Provider/ProviderBookingManagement";
 
 
 function AppRoutes() {
@@ -37,6 +42,7 @@ function AppRoutes() {
       <Route path="/provider" element={<ProviderLayout />}>
         <Route index element={<ProviderDashboard />} />
         <Route path="guide-management" element={<GuideManagementProvider />} />
+        <Route path="bookings-management" element={<ProviderBookingManagement />} />
       </Route>
 
       <Route path="/guide" element={<Layout />}>
