@@ -5,7 +5,7 @@ import LandingHome from "./pages/LandingHome";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 
-import TravelerTest from "./pages/Traveler/TravelerTest";
+import TravelerDashboard from "./pages/Traveler/Dashboard";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import GuideTest from "./pages/Guide/GuideTest";
 import BookingSuccess from "./pages/Guest/BookingSuccess";
@@ -26,6 +26,10 @@ import ContentModeration from "./pages/Admin/ContentModeration";
 import { AuthContextProvider } from "./context/authContext";
 import { Toaster } from "react-hot-toast";
 
+import TourList from "./pages/Traveler/TourList";
+import TourDetail from "./pages/Traveler/TourDetail";
+import TravelerPlaceholder from "./pages/Traveler/TravelerPlaceholder";
+
 function AppRoutes() {
   const location = useLocation();
 
@@ -41,10 +45,14 @@ function AppRoutes() {
       <Route path="/guide-staff-login" element={<GuideLogin />} />
 
       <Route path="/traveler" element={<Layout />}>
-        <Route index element={<TravelerTest />} />
         <Route path="tour-tracking" element={<TourTracking />} />
         <Route path="my-booking-traveler" element={<MyBookingTourTraveler />} />
         <Route path="ai-travel-planner" element={<AITravelPlanner />} />
+
+        <Route index element={<TravelerDashboard />} />
+        <Route path="tour-list" element={<TourList />} />
+        <Route path="tour-detail" element={<TourDetail />} />
+        <Route path="tour-detail/:tourId" element={<TourDetail />} />
       </Route>
 
       <Route path="/admin" element={<Layout />}>
@@ -61,19 +69,17 @@ function AppRoutes() {
         />
       </Route>
 
+      {/* Guide Routes */}
       <Route path="/guide" element={<Layout />}>
         <Route index element={<GuideTest />} />
         <Route path="assigned-tours" element={<AssignedToursList />} />
-        <Route path="tour-detail-ops/:tourId" element={<TourDetailOps />} />
+        {/* Đã xóa dòng Route TourDetailOps gây lỗi ở đây */}
         <Route path="live-tour-tracking" element={<GuideLiveTourTracking />} />
       </Route>
 
       <Route path="/guest" element={<Layout />}>
         <Route path="public-tour-tracking" element={<PublicTourTracking />} />
-        <Route
-          path="booking-success-and-tracking-link"
-          element={<BookingSuccess />}
-        />
+        <Route path="booking-success-and-tracking-link" element={<BookingSuccess />} />
       </Route>
     </Routes>
   );
