@@ -29,6 +29,7 @@ import { Toaster } from "react-hot-toast";
 import TourList from "./pages/Traveler/TourList";
 import TourDetail from "./pages/Traveler/TourDetail";
 import TravelerPlaceholder from "./pages/Traveler/TravelerPlaceholder";
+import HotelManagement from "./pages/Provider/HotelManagement";
 
 function AppRoutes() {
   const location = useLocation();
@@ -68,6 +69,7 @@ function AppRoutes() {
           path="bookings-management"
           element={<ProviderBookingManagement />}
         />
+        <Route path="hotel-management" element={<HotelManagement />} />
       </Route>
 
       <Route path="/guide" element={<Layout />}>

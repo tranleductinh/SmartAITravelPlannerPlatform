@@ -24,6 +24,7 @@ import {
   UserCog,
   BadgeCheck,
   ShieldAlert,
+  Hotel,
 } from "lucide-react";
 
 const MENU = {
@@ -92,6 +93,11 @@ const MENU = {
       name: "Guide Management Provider",
       href: "/guide-management",
       icon: Users,
+    },
+    {
+      name: "Hotel Management Provider",
+      href: "/hotel-management",
+      icon: Hotel,
     },
   ],
 };

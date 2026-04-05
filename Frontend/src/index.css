@@ -87,7 +87,7 @@
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 :root {
@@ -239,109 +239,119 @@ button {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-white;
-  }
-  html {
-    @apply font-sans;
-  }
-  #root {
-    min-height: 100vh;
-  }
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-black;
+    }
+    html {
+        @apply font-sans;
+    }
+    #root {
+        min-height: 100vh;
+    }
 }
 
 @layer components {
-  .bg-primary {
-    color: var(--primary-foreground);
-  }
+    .bg-primary {
+        color: var(--primary-foreground);
+    }
 
-  .bg-primary-container {
-    color: var(--primary-foreground);
-  }
+    .bg-primary-container {
+        color: var(--primary-foreground);
+    }
 
-  [class~="from-primary"][class~="to-primary-container"] {
-    color: var(--primary-foreground);
-  }
+    [class~="from-primary"][class~="to-primary-container"] {
+        color: var(--primary-foreground);
+    }
 
-  .brand-gradient,
-  .primary-gradient,
-  .cta-gradient {
-    color: var(--primary-foreground);
-  }
+    .brand-gradient,
+    .primary-gradient,
+    .cta-gradient {
+        color: var(--primary-foreground);
+    }
 
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 
-  .app-shell-page > * :is(nav, header)[class*="fixed"][class*="top-0"],
-  .app-shell-page > * :is(nav, header)[class*="sticky"][class*="top-0"] {
-    display: none !important;
-  }
+    .app-shell-page > * :is(nav, header)[class*="fixed"][class*="top-0"],
+    .app-shell-page > * :is(nav, header)[class*="sticky"][class*="top-0"] {
+        display: none !important;
+    }
 
-  .app-shell-page > * :is(aside, nav)[class*="w-64"],
-  .app-shell-page > * :is(aside, nav)[class*="md:w-64"],
-  .app-shell-page > * :is(aside, nav)[class*="lg:w-64"],
-  .app-shell-page > * :is(aside, nav)[class*="w-72"],
-  .app-shell-page > * :is(aside, nav)[class*="md:w-72"],
-  .app-shell-page > * :is(aside, nav)[class*="lg:w-72"],
-  .app-shell-page > * :is(aside, nav)[class*="w-80"][class*="h-screen"],
-  .app-shell-page > * :is(aside, nav)[class*="w-64"][class*="sticky"],
-  .app-shell-page > * :is(aside, nav)[class*="w-72"][class*="sticky"],
-  .app-shell-page > * aside[class*="h-screen"][class*="fixed"],
-  .app-shell-page > * aside[class*="h-screen"][class*="sticky"],
-  .app-shell-page > * aside[class*="h-full"][class*="w-64"],
-  .app-shell-page > * aside[class*="h-screen"][class*="w-64"],
-  .app-shell-page > * aside[class*="h-full"][class*="w-72"],
-  .app-shell-page > * aside[class*="h-screen"][class*="w-72"],
-  .app-shell-page > * aside[class*="top-16"],
-  .app-shell-page > * aside[class*="left-0"][class*="fixed"] {
-    display: none !important;
-  }
+    .app-shell-page > * :is(aside, nav)[class*="w-64"],
+    .app-shell-page > * :is(aside, nav)[class*="md:w-64"],
+    .app-shell-page > * :is(aside, nav)[class*="lg:w-64"],
+    .app-shell-page > * :is(aside, nav)[class*="w-72"],
+    .app-shell-page > * :is(aside, nav)[class*="md:w-72"],
+    .app-shell-page > * :is(aside, nav)[class*="lg:w-72"],
+    .app-shell-page > * :is(aside, nav)[class*="w-80"][class*="h-screen"],
+    .app-shell-page > * :is(aside, nav)[class*="w-64"][class*="sticky"],
+    .app-shell-page > * :is(aside, nav)[class*="w-72"][class*="sticky"],
+    .app-shell-page > * aside[class*="h-screen"][class*="fixed"],
+    .app-shell-page > * aside[class*="h-screen"][class*="sticky"],
+    .app-shell-page > * aside[class*="h-full"][class*="w-64"],
+    .app-shell-page > * aside[class*="h-screen"][class*="w-64"],
+    .app-shell-page > * aside[class*="h-full"][class*="w-72"],
+    .app-shell-page > * aside[class*="h-screen"][class*="w-72"],
+    .app-shell-page > * aside[class*="top-16"],
+    .app-shell-page > * aside[class*="left-0"][class*="fixed"] {
+        display: none !important;
+    }
 
-  .app-shell-page > * :is(nav, header, footer)[class*="fixed"][class*="bottom-0"],
-  .app-shell-page > * :is(nav, header, footer)[class*="fixed"][class*="left-0"][class*="w-full"],
-  .app-shell-page > * :is(nav, header, footer)[class*="fixed"][class*="right-0"][class*="left-0"] {
-    display: none !important;
-  }
+    .app-shell-page > * :is(nav, header, footer)[class*="fixed"][class*="bottom-0"],
+    .app-shell-page > * :is(nav, header, footer)[class*="fixed"][class*="left-0"][class*="w-full"],
+    .app-shell-page > * :is(nav, header, footer)[class*="fixed"][class*="right-0"][class*="left-0"] {
+        display: none !important;
+    }
 
-  .app-shell-page > * button[class*="bottom-24"],
-  .app-shell-page > * button[class*="bottom-0"] {
-    display: none !important;
-  }
+    .app-shell-page > * button[class*="bottom-24"],
+    .app-shell-page > * button[class*="bottom-0"] {
+        display: none !important;
+    }
 
-  .app-shell-page > * :is(main, div)[class*="md:ml-64"],
-  .app-shell-page > * :is(main, div)[class*="lg:ml-64"],
-  .app-shell-page > * :is(main, div)[class*="left-64"] {
-    margin-left: 0 !important;
-    left: auto !important;
-  }
+    .app-shell-page > * :is(main, div)[class*="md:ml-64"],
+    .app-shell-page > * :is(main, div)[class*="lg:ml-64"],
+    .app-shell-page > * :is(main, div)[class*="left-64"] {
+        margin-left: 0 !important;
+        left: auto !important;
+    }
 
-  .app-shell-page > * :is(main, div, section)[class*="pt-16"],
-  .app-shell-page > * :is(main, div, section)[class*="pt-24"],
-  .app-shell-page > * :is(main, div, section)[class*="pt-32"] {
-    padding-top: 0 !important;
-  }
+    .app-shell-page > * :is(main, div, section)[class*="pt-16"],
+    .app-shell-page > * :is(main, div, section)[class*="pt-24"],
+    .app-shell-page > * :is(main, div, section)[class*="pt-32"] {
+        padding-top: 0 !important;
+    }
 
-  .app-shell-page > * :is(main, div, section)[class*="md:pl-64"],
-  .app-shell-page > * :is(main, div, section)[class*="lg:pl-64"],
-  .app-shell-page > * :is(main, div, section)[class*="pl-64"],
-  .app-shell-page > * :is(main, div, section)[class*="md:pl-72"],
-  .app-shell-page > * :is(main, div, section)[class*="lg:pl-72"],
-  .app-shell-page > * :is(main, div, section)[class*="pl-72"] {
-    padding-left: 0 !important;
-  }
+    .app-shell-page > * :is(main, div, section)[class*="md:pl-64"],
+    .app-shell-page > * :is(main, div, section)[class*="lg:pl-64"],
+    .app-shell-page > * :is(main, div, section)[class*="pl-64"],
+    .app-shell-page > * :is(main, div, section)[class*="md:pl-72"],
+    .app-shell-page > * :is(main, div, section)[class*="lg:pl-72"],
+    .app-shell-page > * :is(main, div, section)[class*="pl-72"] {
+        padding-left: 0 !important;
+    }
 
-  .app-shell-page > * > main,
-  .app-shell-page > * > div > main,
-  .app-shell-page > * > div {
-    min-height: auto !important;
-  }
+    .app-shell-page > * > main,
+    .app-shell-page > * > div > main,
+    .app-shell-page > * > div {
+        min-height: auto !important;
+    }
+}
+
+html {
+  overflow-y: scroll;           /* vẫn cho scroll */
+  -ms-overflow-style: none;     /* IE, Edge */
+  scrollbar-width: none;        /* Firefox */
+}
+
+html::-webkit-scrollbar:vertical {
+  display: none;                /* Chrome, Safari */
 }
