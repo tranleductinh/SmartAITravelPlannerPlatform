@@ -38,7 +38,6 @@ export const googleLogin = async (idToken) => {
         await user.save();
       }
     } else {
-      const randomPassword = Math.random().toString(36).slice(-8);
 
       user = await User.create({
         google_id: uid,
@@ -46,6 +45,7 @@ export const googleLogin = async (idToken) => {
         fullName: name,
         avatarUrl: picture,
         authType: "google",
+        isActive: true,
       });
     }
 

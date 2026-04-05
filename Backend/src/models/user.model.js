@@ -27,8 +27,8 @@ const userSchema = new Schema(
     refreshToken: { type: String, default: null },
 
     status: { type: String, default: "ACTIVE" },
-    isActive: { type: Boolean, default: true },
-
+    isActive: { type: Boolean, default: false },
+    codeVerify: { type: String, default: null },
     address: { type: String, default: null },
     phone: { type: String, default: null },
   },
@@ -36,7 +36,6 @@ const userSchema = new Schema(
     timestamps: true,
   },
 );
-
 
 const User = model("User", userSchema);
 

@@ -2,16 +2,6 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const hotelImageSchema = new Schema(
-  {
-    imageUrl: { type: String, required: true, trim: true },
-    description: { type: String, default: null },
-  },
-  {
-    _id: true,
-    versionKey: false,
-  },
-);
 
 const hotelSchema = new Schema(
   {
@@ -31,8 +21,8 @@ const hotelSchema = new Schema(
     long: { type: Number, default: null },
 
     isActive: { type: Boolean, default: true },
+    star: { type: Number, default: 0, min: 0 },
 
-    images: { type: [hotelImageSchema], default: [] },
   },
   {
     timestamps: true,
@@ -40,9 +30,7 @@ const hotelSchema = new Schema(
   },
 );
 
-hotelSchema.index({ providerId: 1 });
-hotelSchema.index({ city: 1 });
-hotelSchema.index({ isActive: 1 });
+
 
 const Hotel = model("Hotel", hotelSchema);
 
