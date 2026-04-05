@@ -51,13 +51,15 @@ const mockProcessed = [
     reviewer: "admin_james",
   },
 ];
-
 const ProviderApprovalPage = () => {
   const providers = mockProviders || [];
   const processed = mockProcessed || [];
 
   return (
-    <div className="mt-16 p-8 space-y-12 w-full mx-auto">
+    // SỬA: max-w-[1600px] và pt-24 để đồng bộ khoảng cách với các trang kia
+    <div className="pt-24 pb-12 px-8 max-w-[1600px] mx-auto space-y-12">
+      
+      {/* Header Section */}
       <section>
         <h3 className="text-3xl font-extrabold tracking-tight text-slate-900 font-headline">
           Review New Partnerships
@@ -68,17 +70,24 @@ const ProviderApprovalPage = () => {
         </p>
       </section>
 
+      {/* Main Content Grid */}
       <section className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        
+        {/* CỘT TRÁI: Danh sách chờ duyệt (Chiếm 8 cột) */}
         <div className="xl:col-span-8 space-y-6">
           {providers.map((p) => (
+            // Lưu ý: Trong file ProviderApprovalCard, bạn cũng nên đổi rounded thành 3xl
             <ProviderApprovalCard key={p.id} provider={p} />
           ))}
         </div>
 
+        {/* CỘT PHẢI: Metrics & Info (Chiếm 4 cột) */}
         <div className="xl:col-span-4 space-y-6">
-          <Card className="bg-slate-900 border-none text-white relative overflow-hidden rounded-2xl shadow-xl">
+          
+          {/* Approval Metrics Card - Chỉnh thành bg-teal-900 để khớp Dashboard */}
+          <Card className="bg-teal-900 border-none text-white relative overflow-hidden rounded-3xl shadow-xl p-4">
             <CardHeader className="pb-2">
-              <CardTitle className="text-[10px] font-bold tracking-[0.15em] uppercase opacity-60 relative z-10">
+              <CardTitle className="text-[11px] font-bold tracking-[0.15em] uppercase opacity-60 relative z-10">
                 Approval Metrics
               </CardTitle>
             </CardHeader>
@@ -89,17 +98,18 @@ const ProviderApprovalPage = () => {
                   Provider Approval Rate (MTD)
                 </p>
 
+                {/* Thanh Progress đồng bộ màu */}
                 <Progress value={88} className="h-1.5 mt-4 bg-white/10" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="bg-white/10 rounded-2xl p-4 border border-white/5">
                   <p className="text-2xl font-bold font-headline">12</p>
                   <p className="text-[10px] opacity-50 font-bold uppercase mt-1">
                     New This Week
                   </p>
                 </div>
-                <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                <div className="bg-white/10 rounded-2xl p-4 border border-white/5">
                   <p className="text-2xl font-bold font-headline">4.2d</p>
                   <p className="text-[10px] opacity-50 font-bold uppercase mt-1">
                     Avg. Review Time
@@ -108,25 +118,38 @@ const ProviderApprovalPage = () => {
               </div>
             </CardContent>
 
+            {/* Hiệu ứng Blur chìm phía sau */}
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-teal-500/20 blur-[80px] rounded-full pointer-events-none"></div>
           </Card>
 
-          <Card className="bg-slate-50/50 border-slate-100 rounded-2xl">
+          {/* Guidelines Card - Bo góc 3xl */}
+          <Card className="bg-white border-slate-200 rounded-3xl shadow-sm p-2">
             <CardHeader>
               <CardTitle className="text-sm font-bold text-slate-900 uppercase tracking-wide">
                 Verification Guidelines
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-xs text-slate-500 space-y-3 leading-relaxed">
-              <p>• Verify business license validity for current year.</p>
-              <p>• Ensure insurance coverage meets $5M minimum.</p>
-              <p>• Validate Tax ID against official databases.</p>
+            <CardContent className="text-xs text-slate-500 space-y-4 leading-relaxed pb-6">
+              <div className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-teal-600 text-sm">verified</span>
+                <p>Verify business license validity for current year.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-teal-600 text-sm">security</span>
+                <p>Ensure insurance coverage meets $5M minimum.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="material-symbols-outlined text-teal-600 text-sm">database</span>
+                <p>Validate Tax ID against official databases.</p>
+              </div>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      <section className="pt-6 border-t border-slate-100">
+      {/* Section lịch sử đã xử lý */}
+      <section className="pt-10 border-t border-slate-100">
+        <h4 className="text-xl font-bold text-slate-900 mb-6 px-2">Processed Requests</h4>
         <ProcessedProvidersList data={processed} />
       </section>
     </div>
