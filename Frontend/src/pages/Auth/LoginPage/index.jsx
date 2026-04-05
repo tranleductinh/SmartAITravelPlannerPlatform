@@ -12,7 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import LoginForm from "./LoginForm";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "@/context/authContext";
-gg
+
 const showcaseTravelers = [
   {
     src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD-pK7TwjZdOALP_sr6Up2N28Ups_7DOjaYdeLQAj7nnIivD8gAT0wRyagFljtYvf4OCCh2zQKydtZHe_n1FpiWv0SRe7Kw3xMrZKoR1x_XJvZQceJwzHnOC3PjYmz0WiScpvxhaF1dEsfM-vuRmu-PhCCqFnRw8fmHzAZV_fdbjOVlv81NXVEV25IY4VD764_DiUWd7DfcxGIK5oGI9YnRarFQM-k5e7LN1BepxC4Eo53aCIJ-4avuze9pZeMsK-6despIBUEXIAZA",
