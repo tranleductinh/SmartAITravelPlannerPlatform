@@ -2,39 +2,41 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import HeaderTraveler from "@/components/HeaderTraveler";
-import HeaderAdmin from "@/components/HeaderAdmin";
-import HeaderHotel from "@/components/HeaderHotel";
+import Header from "@/components/Header";
+import HeaderGuest from "@/components/HeaderGuest";
 
 export default function Layout() {
-  const location = useLocation();
-  const roleCurrent = location.pathname.includes("admin");
-  return (
-    <SidebarProvider>
-      <div className="flex w-full">
-        <AppSidebar />
-        <main className="flex-1">
-          {location.pathname.includes("admin") ? (
-            <HeaderAdmin />
-          ) : location.pathname.includes("traveler") ? (
-            <HeaderTraveler />
-          ) : (
-            <HeaderHotel />
-          )}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={location.pathname}
-              className="h-full p-8 space-y-8"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Outlet />
-            </motion.div>
-          </AnimatePresence>
-        </main>
-      </div>
-    </SidebarProvider>
-  );
+    const location = useLocation();
+    const roleCurrent = ["admin", "traveler", "guide", "provider"].find((role) =>
+        location.pathname.startsWith(`/${role}`),
+    );
+    const hasAppShell = Boolean(roleCurrent);
+
+    return (
+        <SidebarProvider>
+            <div className="flex w-full">
+                {hasAppShell && <AppSidebar />}
+
+                {hasAppShell ? <Header /> : <HeaderGuest />}
+                <div className="app-shell-page w-full pt-22 px-3 pb-24 md:px-4 md:pb-8 lg:px-5">
+                    <div className="flex min-h-screen w-full bg-surface">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={location.pathname}
+                                className="h-full w-full min-w-0 space-y-8"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <main className="flex-1 min-w-0 pb-20">
+                                    <Outlet />
+                                </main>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+                </div>
+            </div>
+        </SidebarProvider>
+    );
 }
