@@ -40,6 +40,7 @@ const ROUTE_TITLES = [
   { test: (p) => p === '/guide' || p === '/guide/', title: 'Guide Dashboard' },
   { test: (p) => p.startsWith('/provider/guide-management'), title: 'Guide Management Provider' },
   { test: (p) => p.startsWith('/provider/bookings-management'), title: 'Bookings Management' },
+  { test: (p) => p.startsWith('/provider/hotel-management'), title: 'Hotels Management' },
   { test: (p) => p === '/provider' || p === '/provider/', title: 'Provider Dashboard' },
   { test: (p) => p.startsWith('/traveler/') || p === '/traveler', title: 'Traveler Dashboard' },
   { test: (p) => p.startsWith('/admin/') || p === '/admin', title: 'Admin Dashboard' },
@@ -66,42 +67,7 @@ const Header = () => {
     title: resolveBreadcrumbTitle(location.pathname, baseMeta.title),
   };
 
-  if (isProviderBookingsPage) {
-    return (
-      <header className="fixed top-0 right-0 left-0 z-50 flex h-16 items-center justify-between bg-white/70 px-6 shadow-sm backdrop-blur-xl md:left-64">
-        <h1 className="font-heading text-xl font-bold tracking-tight text-teal-800">
-          Bookings Management
-        </h1>
 
-        <div className="flex items-center gap-4">
-          <div className="relative hidden sm:block">
-            <span className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-outline">
-              search
-            </span>
-            <input
-              className="w-64 rounded-full border-0 bg-surface-container-low py-2 pl-10 pr-4 text-sm text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/20"
-              placeholder="Search customer or tour..."
-              type="text"
-            />
-          </div>
-
-          <button className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-surface-container">
-            <span className="material-symbols-outlined text-on-surface-variant">
-              notifications
-            </span>
-          </button>
-
-          <div className="h-8 w-8 overflow-hidden rounded-full border border-outline-variant/20 bg-surface-container-low">
-            <img
-              alt="User profile avatar"
-              className="h-full w-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC41uXsdWZPnPzXrqRMlprmHjKwdEr1k1X2IAtDXarvBi5i7ZWTo9JWXJpmKLPb2qW8zs3N6ePMYcL4mig7atkS6JyDjhZ0sRj8lX7Mb8JtlxwuMThMUU-Xs_aIty3SyLWIAdw93rgDgUtQqJ0Rr_giYs_aGj5vJJVNw9_ltpNlWjy3YYKaMtULDe4SiO11NsSoQ_MdA6BLmHC8r2pVPVwKR14-0zVwVYNndDBYo-d8vV4_gTCu7_l_BuQ80yj0uggW621js62qO-zL"
-            />
-          </div>
-        </div>
-      </header>
-    );
-  }
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 h-16 border-b border-outline-variant/20 bg-white/92 px-7 backdrop-blur-md md:left-64">

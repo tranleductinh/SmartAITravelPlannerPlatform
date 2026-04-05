@@ -92,7 +92,7 @@ button {
 
 :root {
     --background: #f7f9fb;
-    --foreground: #ffffff;
+    --foreground: #000000;
     --card: #ffffff;
     --card-foreground: #191c1e;
     --popover: #ffffff;
