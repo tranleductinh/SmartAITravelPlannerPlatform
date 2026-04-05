@@ -2,34 +2,6 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const tourImageSchema = new Schema(
-  {
-    imageUrl: { type: String, required: true, trim: true },
-    description: { type: String, default: null },
-  },
-  {
-    _id: true,
-    versionKey: false,
-  },
-);
-
-const tourServiceSchema = new Schema(
-  {
-    name: { type: String, required: true, trim: true },
-    description: { type: String, default: null },
-    type: {
-      type: String,
-      enum: ["HOTEL", "TRANSPORT", "FOOD", "TICKET", "OTHER"],
-      default: "OTHER",
-    },
-    price: { type: Number, default: 0, min: 0 },
-    isActive: { type: Boolean, default: true },
-  },
-  {
-    _id: true,
-    versionKey: false,
-  },
-);
 
 const tourActivitySchema = new Schema(
   {
@@ -38,6 +10,11 @@ const tourActivitySchema = new Schema(
     address: { type: String, default: null },
     long: { type: Number, default: null },
     lat: { type: Number, default: null },
+    statusActivity: {
+      type: String,
+      enum: ["DONE", "NOT_DONE"],
+      default: "NOT_DONE",
+    }
   },
   {
     _id: true,
@@ -76,8 +53,17 @@ const tourSchema = new Schema(
     isActive: { type: Boolean, default: true },
 
     itineraries: { type: [tourItinerarySchema], default: [] },
-    services: { type: [tourServiceSchema], default: [] },
-    images: { type: [tourImageSchema], default: [] },
+    serviceId: {
+      type: [Schema.Types.ObjectId],
+      ref: "Service",
+      default: [],
+    },
+    hotelId: {
+      type: Schema.Types.ObjectId,
+      ref: "Hotel",
+      required: true,
+    },
+
   },
   {
     timestamps: true,
