@@ -50,7 +50,7 @@ const mockUsers = [
 
 const UserManagementPage = () => {
   return (
-    <div className="pt-24 pb-12 px-8 max-w-[1600px] mx-auto space-y-8">
+    <div className="pt-24 pb-12 max-w-[1600px] mx-auto space-y-8">
       <FilterSelect />
 
       <UserDataGrid users={mockUsers} />
