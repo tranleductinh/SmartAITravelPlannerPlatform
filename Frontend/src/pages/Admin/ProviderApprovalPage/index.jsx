@@ -56,9 +56,7 @@ const ProviderApprovalPage = () => {
   const processed = mockProcessed || [];
 
   return (
-    // SỬA: max-w-[1600px] và pt-24 để đồng bộ khoảng cách với các trang kia
     <div className="pt-24 pb-12  max-w-[1600px] mx-auto space-y-12">
-      {/* Header Section */}
       <section>
         <h3 className="text-3xl font-extrabold tracking-tight text-slate-900 font-headline">
           Review New Partnerships
@@ -69,19 +67,14 @@ const ProviderApprovalPage = () => {
         </p>
       </section>
 
-      {/* Main Content Grid */}
       <section className="grid grid-cols-1 xl:grid-cols-12 gap-8">
-        {/* CỘT TRÁI: Danh sách chờ duyệt (Chiếm 8 cột) */}
         <div className="xl:col-span-8 space-y-6">
           {providers.map((p) => (
-            // Lưu ý: Trong file ProviderApprovalCard, bạn cũng nên đổi rounded thành 3xl
             <ProviderApprovalCard key={p.id} provider={p} />
           ))}
         </div>
 
-        {/* CỘT PHẢI: Metrics & Info (Chiếm 4 cột) */}
         <div className="xl:col-span-4 space-y-6">
-          {/* Approval Metrics Card - Chỉnh thành bg-teal-900 để khớp Dashboard */}
           <Card className="bg-teal-900 border-none text-white relative overflow-hidden rounded-3xl shadow-xl p-4">
             <CardHeader className="pb-2">
               <CardTitle className="text-[11px] font-bold tracking-[0.15em] uppercase opacity-60 relative z-10">
@@ -94,8 +87,6 @@ const ProviderApprovalPage = () => {
                 <p className="text-sm opacity-70 mt-1">
                   Provider Approval Rate (MTD)
                 </p>
-
-                {/* Thanh Progress đồng bộ màu */}
                 <Progress value={88} className="h-1.5 mt-4 bg-white/10" />
               </div>
 
@@ -115,11 +106,9 @@ const ProviderApprovalPage = () => {
               </div>
             </CardContent>
 
-            {/* Hiệu ứng Blur chìm phía sau */}
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-teal-500/20 blur-[80px] rounded-full pointer-events-none"></div>
           </Card>
 
-          {/* Guidelines Card - Bo góc 3xl */}
           <Card className="bg-white border-slate-200 rounded-3xl shadow-sm p-2">
             <CardHeader>
               <CardTitle className="text-sm font-bold text-slate-900 uppercase tracking-wide">
@@ -150,7 +139,6 @@ const ProviderApprovalPage = () => {
         </div>
       </section>
 
-      {/* Section lịch sử đã xử lý */}
       <section className="pt-10 border-t border-slate-100">
         <h4 className="text-xl font-bold text-slate-900 mb-6 px-2">
           Processed Requests
