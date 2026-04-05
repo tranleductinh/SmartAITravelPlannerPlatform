@@ -57,8 +57,7 @@ const ProviderApprovalPage = () => {
 
   return (
     // SỬA: max-w-[1600px] và pt-24 để đồng bộ khoảng cách với các trang kia
-    <div className="pt-24 pb-12 px-8 max-w-[1600px] mx-auto space-y-12">
-      
+    <div className="pt-24 pb-12  max-w-[1600px] mx-auto space-y-12">
       {/* Header Section */}
       <section>
         <h3 className="text-3xl font-extrabold tracking-tight text-slate-900 font-headline">
@@ -72,7 +71,6 @@ const ProviderApprovalPage = () => {
 
       {/* Main Content Grid */}
       <section className="grid grid-cols-1 xl:grid-cols-12 gap-8">
-        
         {/* CỘT TRÁI: Danh sách chờ duyệt (Chiếm 8 cột) */}
         <div className="xl:col-span-8 space-y-6">
           {providers.map((p) => (
@@ -83,7 +81,6 @@ const ProviderApprovalPage = () => {
 
         {/* CỘT PHẢI: Metrics & Info (Chiếm 4 cột) */}
         <div className="xl:col-span-4 space-y-6">
-          
           {/* Approval Metrics Card - Chỉnh thành bg-teal-900 để khớp Dashboard */}
           <Card className="bg-teal-900 border-none text-white relative overflow-hidden rounded-3xl shadow-xl p-4">
             <CardHeader className="pb-2">
@@ -131,15 +128,21 @@ const ProviderApprovalPage = () => {
             </CardHeader>
             <CardContent className="text-xs text-slate-500 space-y-4 leading-relaxed pb-6">
               <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-teal-600 text-sm">verified</span>
+                <span className="material-symbols-outlined text-teal-600 text-sm">
+                  verified
+                </span>
                 <p>Verify business license validity for current year.</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-teal-600 text-sm">security</span>
+                <span className="material-symbols-outlined text-teal-600 text-sm">
+                  security
+                </span>
                 <p>Ensure insurance coverage meets $5M minimum.</p>
               </div>
               <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined text-teal-600 text-sm">database</span>
+                <span className="material-symbols-outlined text-teal-600 text-sm">
+                  database
+                </span>
                 <p>Validate Tax ID against official databases.</p>
               </div>
             </CardContent>
@@ -149,7 +152,9 @@ const ProviderApprovalPage = () => {
 
       {/* Section lịch sử đã xử lý */}
       <section className="pt-10 border-t border-slate-100">
-        <h4 className="text-xl font-bold text-slate-900 mb-6 px-2">Processed Requests</h4>
+        <h4 className="text-xl font-bold text-slate-900 mb-6 px-2">
+          Processed Requests
+        </h4>
         <ProcessedProvidersList data={processed} />
       </section>
     </div>
