@@ -9,6 +9,7 @@ import TravelerDashboard from "./pages/Traveler/Dashboard";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import GuideTest from "./pages/Guide/GuideTest";
 import BookingSuccess from "./pages/Guest/BookingSuccess";
+import ProviderApprovalPage from "./pages/Admin/ProviderApprovalPage";
 
 import ProviderDashboard from "./pages/Provider/ProviderDashboard";
 import GuideManagementProvider from "./pages/Provider/GuideManagementProvider";
@@ -56,6 +57,7 @@ function AppRoutes() {
 
       <Route path="/admin" element={<Layout />}>
         <Route index element={<AdminDashboard />} />
+        <Route path="provider-approval" element={<ProviderApprovalPage />} />
         <Route path="content-moderation" element={<ContentModeration />} />
       </Route>
 
